@@ -1,0 +1,39 @@
+﻿<Window x:Class="NasaWPF13A.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NasaWPF13A"
+        mc:Ignorable="d"
+        Title="NASA Küldetések" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnMinden" Content="Minden adat" VerticalAlignment="Center" Margin="5" Click="btnMinden_Click"/>
+                <Button x:Name="btnStatisztika" Content="Statisztika" VerticalAlignment="Center" Margin="5" Click="btnStatisztika_Click"/>
+            </StackPanel>
+            <DataGrid x:Name="dtgAdatok" Grid.Row="1" SelectionChanged="dtgAdatok_SelectionChanged"/>
+        </Grid>
+        <ProgressBar x:Name="pgbErtek" Maximum="77000" Background="#FF1087D6" Foreground="#FFB00693" Orientation="Vertical" Width="80"/>
+        <Image Source="/rocket.png"/>
+        <Label x:Name="lbStatisztika" HorizontalAlignment="Left" Height="32" Margin="76,344,0,0" VerticalAlignment="Top" Width="71" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+    </Grid>
+</Window>
