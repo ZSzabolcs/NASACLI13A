@@ -17,6 +17,7 @@ namespace NasaWPF13A
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,9 +31,25 @@ namespace NasaWPF13A
 
         private void dtgAdatok_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            lbStatisztika.Content = Program.kuldetesek[dtgAdatok.SelectedIndex].Nev;
-            pgbErtek.Value = Program.kuldetesek[dtgAdatok.SelectedIndex].HasznosTeher;
+            if (dtgAdatok.SelectedIndex > -1)
+            {
+                lbStatisztika.Content = Program.kuldetesek[dtgAdatok.SelectedIndex].Nev;
+                pgbErtek.Value = Program.kuldetesek[dtgAdatok.SelectedIndex].HasznosTeher;
+            }
         }
 
+        private void btnStatisztika_Click(object sender, RoutedEventArgs e)
+        {
+            lbStatisztika.Content = "Statisztika";
+            List<Statisztika> statisztikalista = new List<Statisztika>();
+            List<Kuldetes> statisztikalistaEmber = Program.kuldetesek.Where(x => x.Legenyseg > 0).ToList();
+            List<Kuldetes> statisztikalistaEmbertelen = Program.kuldetesek.Where(x => x.Legenyseg == 0).ToList();
+            statisztikalista.Add(new Statisztika("Emberes küldetések", statisztikalistaEmber.Count, $"{statisztikalistaEmber.Average(x => x.HasznosTeher):F2}  kg", $"{statisztikalistaEmber.Average(x => x.Koltseg):F2} mrd USD$"));
+
+            statisztikalista.Add(new Statisztika("Emberes küldetések", statisztikalistaEmbertelen.Count, $"{statisztikalistaEmbertelen.Average(x => x.HasznosTeher):F2} kg", $"{statisztikalistaEmbertelen.Average(x => x.Koltseg):F2}  mrd USD$"));
+            dtgAdatok.ItemsSource = statisztikalista;
+
+
+        }
     }
 }
