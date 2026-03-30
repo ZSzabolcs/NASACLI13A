@@ -22,7 +22,7 @@
             </StackPanel>
             <DataGrid x:Name="dtgAdatok" Grid.Row="1"/>
         </Grid>
-        <ProgressBar x:Name="pgbErtek" />    
+        <ProgressBar x:Name="pgbErtek" Maximum="77000" Background="#FF1087D6" Foreground="#FFB00693" Orientation="Vertical" Width="80"/>    
         <Image Source="/rocket.png"/>
         
     </Grid>
