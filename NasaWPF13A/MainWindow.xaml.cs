@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using NASACLI13A;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,12 @@ namespace NasaWPF13A
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnMinden_Click(object sender, RoutedEventArgs e)
+        {
+            Program.Beolvas("NASAmissions.txt");
+            dtgAdatok.ItemsSource = Program.kuldetesek;
         }
     }
 }

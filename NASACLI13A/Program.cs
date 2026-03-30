@@ -2,10 +2,10 @@
 
 namespace NASACLI13A
 {
-    internal class Program
+    public class Program
     {
 
-        static List<Kuldetes> kuldetesek = new List<Kuldetes>();
+        public static List<Kuldetes> kuldetesek = new List<Kuldetes>();
 
         static void Main(string[] args)
         {
@@ -63,7 +63,7 @@ namespace NASACLI13A
             Console.WriteLine($"Talált küldetés: {keresett.Nev} {keresett.Ev} {keresett.Celpont} {(keresett.Sikeres==true?"sikeres":"sikertelen")}");
         }
 
-        static void Beolvas(string file)
+        public static void Beolvas(string file)
         {
 
             StreamReader sr = new StreamReader(file);

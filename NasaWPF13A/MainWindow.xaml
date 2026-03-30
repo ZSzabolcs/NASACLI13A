@@ -17,7 +17,7 @@
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="btnMinden" Content="Minden adat" VerticalAlignment="Center" Margin="5"/>
+                <Button x:Name="btnMinden" Content="Minden adat" VerticalAlignment="Center" Margin="5" Click="btnMinden_Click"/>
                 <Button x:Name="btnStatisztika" Content="Statisztika" VerticalAlignment="Center" Margin="5"/>
             </StackPanel>
             <DataGrid x:Name="dtgAdatok" Grid.Row="1"/>
