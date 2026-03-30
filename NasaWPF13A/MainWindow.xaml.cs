@@ -27,5 +27,12 @@ namespace NasaWPF13A
             Program.Beolvas("NASAmissions.txt");
             dtgAdatok.ItemsSource = Program.kuldetesek;
         }
+
+        private void dtgAdatok_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            lbStatisztika.Content = Program.kuldetesek[dtgAdatok.SelectedIndex].Nev;
+            pgbErtek.Value = Program.kuldetesek[dtgAdatok.SelectedIndex].HasznosTeher;
+        }
+
     }
 }

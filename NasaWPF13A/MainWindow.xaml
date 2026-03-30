@@ -20,10 +20,20 @@
                 <Button x:Name="btnMinden" Content="Minden adat" VerticalAlignment="Center" Margin="5" Click="btnMinden_Click"/>
                 <Button x:Name="btnStatisztika" Content="Statisztika" VerticalAlignment="Center" Margin="5"/>
             </StackPanel>
-            <DataGrid x:Name="dtgAdatok" Grid.Row="1"/>
+            <DataGrid x:Name="dtgAdatok" Grid.Row="1" SelectionChanged="dtgAdatok_SelectionChanged"/>
         </Grid>
-        <ProgressBar x:Name="pgbErtek" Maximum="77000" Background="#FF1087D6" Foreground="#FFB00693" Orientation="Vertical" Width="80"/>    
+        <ProgressBar x:Name="pgbErtek" Maximum="77000" Background="#FF1087D6" Foreground="#FFB00693" Orientation="Vertical" Width="80"/>
         <Image Source="/rocket.png"/>
-        
+        <Label x:Name="lbStatisztika" HorizontalAlignment="Left" Height="32" Margin="76,344,0,0" VerticalAlignment="Top" Width="71" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
     </Grid>
 </Window>
